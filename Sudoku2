@@ -1,0 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sudoku.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ghochart <ghochart@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/09/17 16:13:34 by ghochart          #+#    #+#             */
+/*   Updated: 2014/09/17 16:14:57 by ghochart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#ifndef FT_SUDOKU_FUNCTIONS_H
+# define FT_SUDOKU_FUNCTIONS_H
+
+#include <stdlib.h>
+#include <unistd.h>
+
+void	ft_putchar(char c);
+
+int		is_on_line(char value, int line, char **sudoku);
+
+int		is_on_column(char value, int column, char **sudoku);
+
+int		is_on_square(char value, int line, int column, char **sudoku);
+
+int		check_case(int line, int column, char **sudoku);
+
+void	print_sudoku(char **sudoku);
+
+void	solve_sudoku(char **argv);
+
+int		check_erreurs(char **argv);
+
+#endif
