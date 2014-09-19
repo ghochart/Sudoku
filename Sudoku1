@@ -1,0 +1,66 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sudoku_solver.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ghochart <ghochart@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/09/17 16:17:11 by ghochart          #+#    #+#             */
+/*   Updated: 2014/09/17 16:17:23 by ghochart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_sudoku_functions.h"
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+int	is_on_line(char value, int line, char **sudoku)
+{
+	int	column;
+
+	column = 0;
+	while (column < 9)
+	{
+		if (sudoku[line][column] == value)
+			return (1);
+		column++;
+	}
+	return (0);
+}
+
+int	is_on_column(char value, int column, char **sudoku)
+{
+	int line;
+
+	line = 0;
+	while (line < 9)
+	{
+		if (sudoku[line][column] == value)
+			return (1);
+		line++;
+	}
+	return (0);
+}
+
+int	is_on_square(char value, int line, int column, char **sudoku)
+{
+	int i;
+	int j;
+
+	i = line;
+	while (i < line + 3)
+	{
+		j = column;
+		while (j < column + 3)
+		{
+			if (sudoku[i][j] == value)
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
